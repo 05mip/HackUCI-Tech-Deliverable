@@ -78,6 +78,7 @@ function App() {
 			<div key={index}>
 			<p>{quote.name}</p>
 			<p>{quote.message}</p>
+			<p>{quote.time}</p>
 			</div>
 		))}
 		</div>
