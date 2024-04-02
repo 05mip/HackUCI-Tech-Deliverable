@@ -1,7 +1,7 @@
-from datetime import datetime
-from typing import TypedDict
+from datetime import datetime, timedelta
+from typing import Optional, TypedDict
 
-from fastapi import FastAPI, Form, status
+from fastapi import FastAPI, Form, Query, status
 from fastapi.responses import RedirectResponse
 
 from services.database import JSONDatabase
@@ -49,6 +49,24 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
 @app.get("/quotes")
 def get_messages():
     """
-    Returns dictionary of quotes from database
+    Returns dictionary of quotes from database given the maximum age
     """
-    return database["quotes"]
+    interval: Optional[str] = Query(None, 
+                                    description = "Max age of quote (week, month, year); Default includes all")
+
+    quotes = database["quotes"]
+    now = datetime.now().date()
+
+    if interval == "week":
+        max_date = 7
+    elif interval == "month":
+        max_date = 30
+    elif interval == "year":
+        max_date = 365
+    else:
+        max_date = float('inf')
+
+    filtered_quotes = [quote for quote in quotes 
+              if 0 <= (now - datetime.strptime(quote["time"], "%Y-%m-%dT%H:%M:%S").date()).days <= max_date]
+    
+    return filtered_quotes
