@@ -47,13 +47,11 @@ def post_message(name: str = Form(), message: str = Form()) -> RedirectResponse:
     return RedirectResponse("/", status.HTTP_303_SEE_OTHER)
 
 @app.get("/quotes")
-def get_messages():
+def get_messages(interval: Optional[str] = Query(None, 
+                                    description = "Max age of quote (week, month, year); Default includes all")):
     """
     Returns dictionary of quotes from database given the maximum age
     """
-    interval: Optional[str] = Query(None, 
-                                    description = "Max age of quote (week, month, year); Default includes all")
-
     quotes = database["quotes"]
     now = datetime.now().date()
 
@@ -68,5 +66,4 @@ def get_messages():
 
     filtered_quotes = [quote for quote in quotes 
               if 0 <= (now - datetime.strptime(quote["time"], "%Y-%m-%dT%H:%M:%S").date()).days <= max_date]
-    
     return filtered_quotes
