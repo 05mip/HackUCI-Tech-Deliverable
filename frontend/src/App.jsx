@@ -5,14 +5,15 @@ function App() {
 	const [name, setName] = useState("");
 	const [quote, setQuote] = useState("");
 	const [quotes, setQuotes] = useState([]);
+	const [interval, setInterval] = useState("all"); // Default to "all" interval
 
 	useEffect(() => {
 		fetchQuotes();
-	}, []);
+	}, [interval]);
 
 	const fetchQuotes = async () => {
 		try {
-			const response = await fetch("/api/quotes");
+			const response = await fetch(`/api/quotes?interval=${interval}`);
 			if (!response.ok) {
 				throw new Error("Failed to fetch quotes");
 			}
@@ -73,6 +74,17 @@ function App() {
 		</form>
 
 		<h2>Previous Quotes</h2>
+		
+		<select
+			value={interval}
+			onChange={(e) => setInterval(e.target.value)}
+		>
+			<option value="all">All</option>
+			<option value="week">Week</option>
+			<option value="month">Month</option>
+			<option value="year">Year</option>
+		</select>
+
 		<div className="messages">
 		{quotes.map((quote, index) => (
 			<div key={index}>
