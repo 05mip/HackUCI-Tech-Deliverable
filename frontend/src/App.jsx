@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import QuoteItem from "./QuoteItem";
 
 function App() {
 	const [name, setName] = useState("");
@@ -48,34 +49,39 @@ function App() {
 
 	return (
 	<div className="App">
-		<h1>Hack at UCI Tech Deliverable</h1>
+		<h1 className="header">Hack at UCI Tech Deliverable</h1>
 
-		<h2>Submit a quote</h2>
-		<form onSubmit={handleSubmit}>
-		<label htmlFor="input-name">Name</label>
-		<input
-			type="text"
-			name="name"
-			id="input-name"
-			value={name}
-			onChange={(e) => setName(e.target.value)}
-			required
-		/>
-		<label htmlFor="input-message">Quote</label>
-		<input
-			type="text"
-			name="message"
-			id="input-message"
-			value={quote}
-			onChange={(e) => setQuote(e.target.value)}
-			required
-		/>
-		<button type="submit">Submit</button>
-		</form>
+		<div class="submit-block">
+			<h2 class="submit-header">Submit a quote</h2>
+			<form onSubmit={handleSubmit}>
+			<label htmlFor="input-name">Name</label>
+			<input
+				type="text"
+				name="name"
+				id="input-name"
+				value={name}
+				onChange={(e) => setName(e.target.value)}
+				required
+			/>
+			<label htmlFor="input-message">Quote</label>
+			<input
+				type="text"
+				name="message"
+				id="input-message"
+				value={quote}
+				onChange={(e) => setQuote(e.target.value)}
+				required
+			/>
+			<button type="submit">Submit</button>
+			</form>
+		</div>
 
-		<h2>Previous Quotes</h2>
+		<h2 class="quotes-header">Previous Quotes</h2>
+		
+		<label class="filter-label">Filter by Age</label>
 		
 		<select
+			className="filter-dropdown"
 			value={interval}
 			onChange={(e) => setInterval(e.target.value)}
 		>
@@ -85,14 +91,16 @@ function App() {
 			<option value="year">Year</option>
 		</select>
 
+		<hr/>
 		<div className="messages">
-		{quotes.map((quote, index) => (
-			<div key={index}>
-			<p>{quote.name}</p>
-			<p>{quote.message}</p>
-			<p>{quote.time}</p>
-			</div>
-		))}
+			{quotes.map((quote, index) => (
+				<QuoteItem
+					key={index}
+					name={quote.name}
+					message={quote.message}
+					time={quote.time}
+			  	/>
+			))}
 		</div>
 	</div>
 	);
