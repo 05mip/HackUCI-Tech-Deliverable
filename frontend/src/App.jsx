@@ -105,7 +105,7 @@ function App() {
 				<div className="quote-item" key={index}>
 					<div>{quote.name}</div>
 					<div>{quote.message}</div>
-					<div>{quote.time}</div>
+					<div>{new Date(quote.time).toLocaleDateString('en-US')}</div>
 				</div>
 			))}
 		</div>
