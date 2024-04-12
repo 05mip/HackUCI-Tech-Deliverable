@@ -9,6 +9,22 @@ body {
   margin: 0 auto;
 }
 
+.main-header {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.main-header h1 {
+  margin-right: 50px;
+}
+
+.main-header img {
+  width: 150px;
+  height: auto;
+  padding-top: 20px;
+}
+
 h1 {
   font-size: 70px;
   margin-bottom: 50px;
@@ -20,9 +36,9 @@ h1 {
 }
 
 h2.quotes-header {
-    padding-left: 20px;
-    padding-top: 10px;
-    color: white;
+  padding-left: 20px;
+  padding-top: 10px;
+  color: white;
 }
 
 label.filter-label {

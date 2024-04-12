@@ -48,7 +48,10 @@ function App() {
 
 	return (
 	<div className="App">
-		<h1 className="header">Hack at UCI Tech Deliverable</h1>
+		<div class="main-header">
+			<h1 className="header">Hack at UCI Tech Deliverable</h1>
+			<img src="https://hackatuci.notion.site/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F8364fd60-7843-4a7d-9eea-6109371df0ef%2Fquotebook.png?table=block&id=ccfc29da-56f8-4d25-946d-0f787b8589ad&spaceId=4e23f586-3e2e-403c-b0fd-e532279b0d08&width=220&userId=&cache=v2" alt="QuoteBook Logo" />
+		</div>
 
 		<div class="submit-block">
 			<h2 class="submit-header">Submit a quote</h2>
