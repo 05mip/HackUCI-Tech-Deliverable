@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import QuoteItem from "./QuoteItem";
 
 function App() {
 	const [name, setName] = useState("");
 	const [quote, setQuote] = useState("");
 	const [quotes, setQuotes] = useState([]);
-	const [interval, setInterval] = useState("all"); // Default to "all" interval
+	const [interval, setInterval] = useState("all");
 
 	useEffect(() => {
 		fetchQuotes();
@@ -53,26 +52,32 @@ function App() {
 
 		<div class="submit-block">
 			<h2 class="submit-header">Submit a quote</h2>
-			<form onSubmit={handleSubmit}>
-			<label htmlFor="input-name">Name</label>
-			<input
-				type="text"
-				name="name"
-				id="input-name"
-				value={name}
-				onChange={(e) => setName(e.target.value)}
-				required
-			/>
-			<label htmlFor="input-message">Quote</label>
-			<input
-				type="text"
-				name="message"
-				id="input-message"
-				value={quote}
-				onChange={(e) => setQuote(e.target.value)}
-				required
-			/>
-			<button type="submit">Submit</button>
+			<form onSubmit={handleSubmit} class="form-container">
+				<div class="input-block">
+					<div class="input-container">
+						<label for="input-name">Name</label>
+						<input
+							type="text"
+							name="name"
+							id="input-name"
+							value={name}
+							onChange={(e) => setName(e.target.value)}
+							required
+						/>
+					</div>
+					<div class="input-container">
+						<label for="input-message">Quote</label>
+						<input
+							type="text"
+							name="message"
+							id="input-message"
+							value={quote}
+							onChange={(e) => setQuote(e.target.value)}
+							required
+						/>
+					</div>
+				</div>
+				<button type="submit">Submit</button>
 			</form>
 		</div>
 
@@ -94,12 +99,11 @@ function App() {
 		<hr/>
 		<div className="messages">
 			{quotes.map((quote, index) => (
-				<QuoteItem
-					key={index}
-					name={quote.name}
-					message={quote.message}
-					time={quote.time}
-			  	/>
+				<div className="quote-item" key={index}>
+					<div>{quote.name}</div>
+					<div>{quote.message}</div>
+					<div>{quote.time}</div>
+				</div>
 			))}
 		</div>
 	</div>

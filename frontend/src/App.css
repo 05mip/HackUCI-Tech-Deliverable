@@ -1,55 +1,28 @@
-/* Global styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #1076d4; /* Updated background color */
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #1076d4;
+}
   
-  .App {
-    margin: 0 auto;
-  }
+.App {
+  margin: 0 auto;
+}
 
-  h1 {
-    font-size: 70px;
-    margin-bottom: 50px;
-    margin-top: 50px;
-    text-align: center;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-  }
+h1 {
+  font-size: 70px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  text-align: center;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+}
 
-  .submit-block {
-    background-color: white;
-    color: rgb(0, 0, 0); 
-    max-width: none;
-  }
-
-  h2.submit-header {
-    padding-left: 20px;
-    padding-top: 20px;
-  }
-  
-  h2.quotes-header {
+h2.quotes-header {
     padding-left: 20px;
     padding-top: 10px;
     color: white;
-  }
-
-form {
-  margin-bottom: 20px;
-  background-color: #fff; /* Set background color to white */
-  padding: 20px;
-  border-radius: 20px;
-  display: flex;
-  flex-wrap: wrap; /* Allow wrapping if needed */
-  justify-content: space-between; /* Space elements evenly */
-}
-
-label {
-  font-weight: bold;
-  flex: 1 100%; /* Take full width */
 }
 
 label.filter-label {
@@ -58,52 +31,100 @@ label.filter-label {
   color: white;
 }
 
-input[type="text"] {
-  width: calc(50% - 10px); /* Adjust width to 50% minus margin */
+.submit-block {
+  background-color: white;
+  color: rgb(0, 0, 0);
+  max-width: none;
+}
+
+.submit-header {
+  padding-left: 20px;
+  padding-top: 20px;
+}
+
+.form-container {
+  display: flex;
+  align-items: flex-start;
+  padding-left: 10px;
+  padding-bottom: 20px;
+  flex-direction: column;
+}
+
+.input-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.input-container {
+  flex: 1;
+  margin: 0 10px;
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-container input {
+  width: 95%;
   padding: 8px;
-  margin-bottom: 10px;
-  border-radius: 5px; /* Add border-radius */
+  border-radius: 5px;
 }
 
 button[type="submit"] {
   background-color: #007bff;
   color: #fff;
   border: none;
-  padding: 10px 200px;
+  padding: 10px 33px;
   cursor: pointer;
   border-radius: 20px;
-  display: block; /* Make button a block element */
-  margin-right: 100%;
-  margin-top: 10px;
+  align-self: center;
+  margin-top: 20px;
 }
-  
-  .messages {
-    background-color: #1076d4; /* Updated background color */
-    border-radius: 5px;
-    padding: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    color: #fff; /* Set text color to white */
-  }
-  
-  .messages p {
-    margin: 0;
-  }
-  
-  /* Select styles */
-  select {
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 15px; /* Add rounded edges */
-  }
-  
-  /* Quote item styles */
-  .quote-item {
-    display: flex;
-    justify-content: space-between; /* Space between items */
-    margin-bottom: 20px; /* Add space between quotes */
-  }
 
-  hr {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+.messages {
+  background-color: #1076d4;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.messages p {
+  margin: 0;
+}
+
+select {
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+}
+
+.quote-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+
+.quote-item div {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.quote-item div:nth-child(2) {
+  flex: 2;
+  padding-right: 300px;
+  padding-left: 40px;
+}
+
+hr {
+  margin-left: 20px;
+  margin-right: 20px;
+}
